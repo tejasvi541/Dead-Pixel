@@ -7,3 +7,15 @@ const transport = createTransport({
     pass: process.env.EMAIL_PASSWORD,
   },
 });
+
+export const sendMail = async (emails: string[], trackingId: string) => {
+  const mailOption = {
+    from: process.env.EMAIL_USER,
+    to: emails,
+    subject: "Tracking Dead Pixel",
+    html: `
+    <h1>Tracking Id : ${trackingId}</h1>
+    
+    `,
+  };
+};

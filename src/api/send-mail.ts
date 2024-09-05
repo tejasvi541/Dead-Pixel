@@ -21,7 +21,11 @@ app.post("/send-mail", async (c) => {
     await Track.create({ trackingId });
     // Now Have to Send Email
     await sendMail(emails, trackingId);
-  } catch (error) {}
+
+    return c.json({ trackingId, message: "Mail sent successfully" });
+  } catch (error) {
+    return c.json({ error: "Failed to send mail" }, 500);
+  }
 });
 
 export default app;

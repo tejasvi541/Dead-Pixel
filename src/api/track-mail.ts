@@ -7,7 +7,7 @@ const app = new Hono();
 let imageBuffer: Buffer;
 
 (async () => {
-  imageBuffer = await fs.readFile(__dirname + "../assets/dead.png");
+  imageBuffer = await fs.readFile(__dirname + "/assets/dead.png");
 })();
 
 app.get("/track-mail/:id", async (c) => {
